@@ -1,0 +1,3 @@
+services:
+  ikwattro.github_event.event_processor_manager:
+    class: "Ikwattro\\GithubEvent\\EventProcessorManager"

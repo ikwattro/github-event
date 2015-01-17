@@ -1,0 +1,25 @@
+{
+    "name": "ikwattro/github-event-mapper",
+    "description": "Github Api Public Events to PHP Objects Mapper",
+    "require": {
+        "php": "~5.4",
+        "symfony/config": "~2.6",
+        "symfony/dependency-injection": "~2.6"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.1",
+        "phpunit/phpunit": "~4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christophe Willemsen",
+            "email": "willemsen.christophe@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Ikwattro\\GithubEvent\\": "src/"
+      }
+    }
+}
