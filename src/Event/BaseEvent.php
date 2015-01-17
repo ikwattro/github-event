@@ -20,6 +20,8 @@ class BaseEvent
 
     protected $repository;
 
+    protected $createdTime;
+
     public function __construct($eventId)
     {
         $this->eventId = (int) $eventId;
@@ -48,5 +50,40 @@ class BaseEvent
     public function getRepository()
     {
         return $this->repository;
+    }
+
+    public function setTime($time)
+    {
+        $this->createdTime = new \DateTime($time);
+    }
+
+    public function getCreatedTime()
+    {
+        return $this->createdTime;
+    }
+
+    public function getYear()
+    {
+        return (int) $this->createdTime->format('Y');
+    }
+
+    public function getDay()
+    {
+        return (int) $this->createdTime->format('d');
+    }
+
+    public function getMonth()
+    {
+        return (int) $this->createdTime->format('m');
+    }
+
+    public function getHour()
+    {
+        return (int) $this->createdTime->format('H');
+    }
+
+    public function getMinute()
+    {
+        return (int) $this->createdTime->format('i');
     }
 }

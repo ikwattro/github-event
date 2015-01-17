@@ -31,6 +31,7 @@ class WatchEventProcessor extends AbstractEventProcessor
         $e->setActor($this->getActor($event));
         $e->setRepository($this->getRepository($event));
         $e->setWatched($this->isWatched($event));
+        $e->setTime($event['created_at']);
 
         return $e;
     }
