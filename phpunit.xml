@@ -3,7 +3,7 @@
 
     <testsuites>
         <testsuite name="tests">
-            <directory>./tests/Ikwattro/GithubEvent/Tests</directory>
+            <directory>./tests/Ikwattro/GithubEvent</directory>
         </testsuite>
     </testsuites>
     <filter>
