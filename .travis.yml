@@ -8,7 +8,6 @@ php:
 before_script:
     - composer self-update
     - composer install --prefer-source --no-interaction
-    - mv tests/database_settings.yml.dist tests/database_settings.yml
 
 script:
     - ./vendor/bin/phpunit
