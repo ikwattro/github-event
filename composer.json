@@ -24,7 +24,7 @@
     },
     "autoload-dev": {
       "psr-4": {
-        "Ikwattro\\GithubEvent\\Tests": "tests/Ikwattro/GithubEvent/Tests"
+        "Ikwattro\\GithubEvent\\Tests\\": "tests/Ikwattro/GithubEvent/Tests"
       }
     }
 }
