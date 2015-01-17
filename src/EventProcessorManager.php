@@ -15,7 +15,8 @@ namespace Ikwattro\GithubEvent;
 
 use Ikwattro\GithubEvent\EventProcessor\EventProcessorInterface,
     Ikwattro\GithubEvent\Exception\EventNotHandledException;
-use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor,
+    Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor;
 
 class EventProcessorManager
 {
@@ -24,6 +25,7 @@ class EventProcessorManager
     public function __construct()
     {
         $this->registerEventProcessor(new WatchEventProcessor());
+        $this->registerEventProcessor(new CreateEventProcessor());
     }
 
     public function registerEventProcessor(EventProcessorInterface $eventProcessor)
