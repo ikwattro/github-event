@@ -1,5 +1,5 @@
 {
-    "name": "ikwattro/github-event-mapper",
+    "name": "ikwattro/github-event",
     "description": "Github Api Public Events to PHP Objects Mapper",
     "require": {
         "php": "~5.4",
@@ -20,6 +20,11 @@
     "autoload": {
       "psr-4": {
         "Ikwattro\\GithubEvent\\": "src/"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "Ikwattro\\GithubEvent\\Tests": "tests/Ikwattro/GithubEvent/Tests"
       }
     }
 }

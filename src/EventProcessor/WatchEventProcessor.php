@@ -13,8 +13,7 @@
 
 namespace Ikwattro\GithubEvent\EventProcessor;
 
-use Ikwattro\GithubEvent\Event\WatchEvent,
-    Ikwattro\GithubEvent\Event\Repository;
+use Ikwattro\GithubEvent\Event\WatchEvent;
 use Ikwattro\GithubEvent\Exception\InvalidEventException;
 
 class WatchEventProcessor extends AbstractEventProcessor

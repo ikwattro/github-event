@@ -22,7 +22,7 @@ class EventHandler
     /**
      * @var string
      */
-    public static $version = '1.0.0';
+    public static $version = '0.1.0';
 
     /**
      * @var ContainerBuilder|ContainerInterface
@@ -86,11 +86,28 @@ class EventHandler
         return $this;
     }
 
+    public function getEventProcessorManager()
+    {
+        return $this->getService('ikwattro.github_event.event_processor_manager');
+    }
+
     public function handleEvent(array $event)
     {
-        print_r($event);
-        $processor = $this->serviceContainer->get('ikwattro.github_event.event_processor_manager')->getProcessorForEvent($event['type']);
+        $processor = $this->getEventProcessorManager()->getProcessorForEvent($event['type']);
 
         return $processor->processEvent($event);
+    }
+
+    private function getService($name)
+    {
+        if (!$this->serviceContainer->isFrozen()) {
+            throw new \RuntimeException(sprintf('The service with ID "%s" cannot be accessed before the application is built'));
+        }
+
+        if (!$this->serviceContainer->has($name)) {
+            throw new \RuntimeException(sprintf('The service with ID "%s" is not registered'));
+        }
+
+        return $this->serviceContainer->get($name);
     }
 }
