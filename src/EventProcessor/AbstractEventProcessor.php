@@ -15,10 +15,20 @@ namespace Ikwattro\GithubEvent\EventProcessor;
 
 use Ikwattro\GithubEvent\Event\Actor;
 use Ikwattro\GithubEvent\Event\Repository;
+use Ikwattro\GithubEvent\Event\BaseEvent;
 use Ikwattro\GithubEvent\Exception\InvalidEventException;
 
 abstract class AbstractEventProcessor implements EventProcessorInterface
 {
+    protected function handleBase(array $event, BaseEvent $e)
+    {
+        $e->setActor($this->getActor($event));
+        $e->setRepository($this->getRepository($event));
+        $e->setTime($event['created_at']);
+
+        return $e;
+    }
+
     public function getActor(array $eventInfo)
     {
         if (!isset($eventInfo['actor']['id']) || !isset($eventInfo['actor']['login'])) {
