@@ -42,5 +42,6 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($eventO->isNewTag());
         $this->assertEquals('neoxygen/neo4j-neoclient', $eventO->getRepository()->getName());
         $this->assertEquals('2.0.10', $eventO->getNewTagName());
+        $this->assertEquals('ikwattro', $eventO->getActor()->getName());
     }
 }
