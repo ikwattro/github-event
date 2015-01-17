@@ -16,7 +16,6 @@ namespace Ikwattro\GithubEvent\DependencyInjection;
 use Symfony\Component\DependencyInjection\ContainerBuilder,
     Symfony\Component\DependencyInjection\Loader\YamlFileLoader,
     Symfony\Component\DependencyInjection\Extension\ExtensionInterface,
-    Symfony\Component\DependencyInjection\Definition,
     Symfony\Component\Config\Definition\Processor,
     Symfony\Component\Config\FileLocator;
 
