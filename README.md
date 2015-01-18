@@ -9,7 +9,7 @@ Transforms the [Github API Public Events](https://developer.github.com/v3/activi
 Require the library in your `composer.json`
 
 ```bash
-composer require ikwattro/github-even
+composer require ikwattro/github-event
 ```
 
 ### Usage
