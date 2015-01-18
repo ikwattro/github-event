@@ -12,14 +12,12 @@
 
 namespace Ikwattro\GithubEvent\Event;
 
-class Repository
+class Organization
 {
 
     protected $id;
 
     protected $name;
-
-    protected $organization;
 
     public function __construct($id, $name)
     {
@@ -35,24 +33,5 @@ class Repository
     public function getName()
     {
         return $this->name;
-    }
-
-    public function isOrg()
-    {
-        if (null !== $this->organization) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public function setOrganization(Organization $organization)
-    {
-        $this->organization = $organization;
-    }
-
-    public function getOrganization()
-    {
-        return $this->organization;
     }
 }

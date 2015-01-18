@@ -12,19 +12,19 @@
 
 namespace Ikwattro\GithubEvent\Event;
 
-class Repository
+class User
 {
-
     protected $id;
 
-    protected $name;
+    protected $login;
 
-    protected $organization;
+    protected $type;
 
-    public function __construct($id, $name)
+    public function __construct($id, $login, $type)
     {
         $this->id = (int) $id;
-        $this->name = (string) $name;
+        $this->login = (string) $login;
+        $this->type = strtolower($type);
     }
 
     public function getId()
@@ -32,27 +32,26 @@ class Repository
         return $this->id;
     }
 
-    public function getName()
+    public function getLogin()
     {
-        return $this->name;
+        return $this->login;
     }
 
-    public function isOrg()
+    public function isUser()
     {
-        if (null !== $this->organization) {
+        if ('user' === $this->type) {
             return true;
         }
 
         return false;
     }
 
-    public function setOrganization(Organization $organization)
+    public function isOrg()
     {
-        $this->organization = $organization;
-    }
+        if ('organization' === $this->type) {
+            return true;
+        }
 
-    public function getOrganization()
-    {
-        return $this->organization;
+        return false;
     }
 }

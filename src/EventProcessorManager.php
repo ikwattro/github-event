@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the GithubEvent package.
- * 
+ *
  * (c) Christophe Willemsen <chris@neoxygen.io>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -16,7 +16,8 @@ namespace Ikwattro\GithubEvent;
 use Ikwattro\GithubEvent\EventProcessor\EventProcessorInterface,
     Ikwattro\GithubEvent\Exception\EventNotHandledException;
 use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor;
+    Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor,
+    Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor;
 
 class EventProcessorManager
 {
@@ -26,6 +27,7 @@ class EventProcessorManager
     {
         $this->registerEventProcessor(new WatchEventProcessor());
         $this->registerEventProcessor(new CreateEventProcessor());
+        $this->registerEventProcessor(new IssuesEventProcessor());
     }
 
     public function registerEventProcessor(EventProcessorInterface $eventProcessor)

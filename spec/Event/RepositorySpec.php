@@ -4,6 +4,7 @@ namespace spec\Ikwattro\GithubEvent\Event;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Ikwattro\GithubEvent\Event\Organization;
 
 class RepositorySpec extends ObjectBehavior
 {
@@ -25,5 +26,14 @@ class RepositorySpec extends ObjectBehavior
     function it_should_have_a_name_on_construct()
     {
         $this->getName()->shouldReturn('ikwattro/github-event-mapper');
+    }
+
+    function it_should_have_a_organization_boolean(Organization $organization)
+    {
+        $this->isOrg()->shouldReturn(false);
+        $organization->getName()->willReturn('neoxygen');
+        $this->setOrganization($organization);
+        $this->isOrg()->shouldReturn(true);
+        $this->getOrganization()->getName()->shouldReturn('neoxygen');
     }
 }
