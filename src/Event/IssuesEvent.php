@@ -12,8 +12,6 @@
 
 namespace Ikwattro\GithubEvent\Event;
 
-use Ikwattro\GithubEvent\Event\Issue;
-
 class IssuesEvent extends BaseEvent
 {
     protected $action;
