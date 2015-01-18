@@ -54,4 +54,14 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('JackieXu', $eventO->getIssue()->getAuthor()->getLogin());
         $this->assertEquals('CLOSED', $eventO->getAction());
     }
+
+    public function testIssueCommentEventIsHandled()
+    {
+        $event = $this->events[4];
+        $eventO = $this->handler->handleEvent($event);
+        $this->assertInstanceOf('Ikwattro\GithubEvent\Event\IssueCommentEvent', $eventO);
+        $this->assertEquals('ikwattro', $eventO->getCommentAuthor()->getLogin());
+        $this->assertFalse($eventO->getCommentAuthor()->isOrg());
+        $this->assertEquals('JackieXu', $eventO->getIssue()->getAuthor()->getLogin());
+    }
 }

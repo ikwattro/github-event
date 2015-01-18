@@ -17,7 +17,8 @@ use Ikwattro\GithubEvent\EventProcessor\EventProcessorInterface,
     Ikwattro\GithubEvent\Exception\EventNotHandledException;
 use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor,
     Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor;
+    Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor,
+    Ikwattro\GithubEvent\EventProcessor\IssueCommentEventProcessor;
 
 class EventProcessorManager
 {
@@ -28,6 +29,7 @@ class EventProcessorManager
         $this->registerEventProcessor(new WatchEventProcessor());
         $this->registerEventProcessor(new CreateEventProcessor());
         $this->registerEventProcessor(new IssuesEventProcessor());
+        $this->registerEventProcessor(new IssueCommentEventProcessor());
     }
 
     public function registerEventProcessor(EventProcessorInterface $eventProcessor)
