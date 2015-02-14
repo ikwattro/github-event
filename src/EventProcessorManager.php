@@ -19,7 +19,8 @@ use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor,
     Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor,
     Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor,
     Ikwattro\GithubEvent\EventProcessor\IssueCommentEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\PushEventProcessor;
+    Ikwattro\GithubEvent\EventProcessor\PushEventProcessor,
+    Ikwattro\GithubEvent\EventProcessor\PullRequestEventProcessor;
 
 class EventProcessorManager
 {
@@ -32,6 +33,7 @@ class EventProcessorManager
         $this->registerEventProcessor(new IssuesEventProcessor());
         $this->registerEventProcessor(new IssueCommentEventProcessor());
         $this->registerEventProcessor(new PushEventProcessor());
+        $this->registerEventProcessor(new PullRequestEventProcessor());
     }
 
     public function registerEventProcessor(EventProcessorInterface $eventProcessor)

@@ -21,6 +21,8 @@ class Repository
 
     protected $organization;
 
+    protected $owner;
+
     public function __construct($id, $name)
     {
         $this->id = (int) $id;
@@ -54,5 +56,15 @@ class Repository
     public function getOrganization()
     {
         return $this->organization;
+    }
+
+    public function setOwner(User $user)
+    {
+        $this->owner = $user;
+    }
+
+    public function getOwner()
+    {
+        return $this->owner;
     }
 }

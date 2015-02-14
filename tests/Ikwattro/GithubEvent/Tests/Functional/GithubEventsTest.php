@@ -73,4 +73,14 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('refs/heads/master', $eventO->getReference());
         $this->assertCount(2, $eventO->getCommits());
     }
+
+    public function testPullRequestEventIsHandled()
+    {
+        $event = $this->events[9];
+        $eventO = $this->handler->handleEvent($event);
+        $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PullRequestEvent', $eventO);
+        $this->assertEquals('OPENED', $eventO->getAction());
+        $this->assertEquals(27465438, $eventO->getPullRequest()->getId());
+        $this->assertEquals('neo4j-neoclient', $eventO->getPullRequest()->getBase()->getRepository()->getName());
+    }
 }
