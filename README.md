@@ -59,7 +59,7 @@ Please refer to the source code for discovering what is inside each event.
 - [x] CreateEvent
 - [x] PushEvent
 - [ ] ForkEvent
-- [ ] PullRequestEvent
+- [x] PullRequestEvent
 
 ---
 
