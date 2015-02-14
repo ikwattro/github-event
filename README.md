@@ -1,4 +1,6 @@
-# GithubEvent
+# GithubEvent Object Mapper
+
+[![Build Status](https://travis-ci.org/ikwattro/github-event.svg?branch=master)](https://travis-ci.org/ikwattro/github-event)
 
 ## Github Api Public Events to PHP Objects
 
