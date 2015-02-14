@@ -30,6 +30,7 @@ class GithubEventExtension implements ExtensionInterface
         $configuration = new Configuration();
 
         $config = $processor->processConfiguration($configuration, $configs);
+        print_r($config);
 
         $loader = new YamlFileLoader(
             $container,
