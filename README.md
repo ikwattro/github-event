@@ -53,10 +53,13 @@ Please refer to the source code for discovering what is inside each event.
 
 #### Currently supported events
 
-* WatchEvent
-* IssuesEvent
-* IssueCommentEvent
-* CreateEvent
+- [x] WatchEvent
+- [x] IssuesEvent
+- [x] IssueCommentEvent
+- [x] CreateEvent
+- [x] PushEvent
+- [ ] ForkEvent
+- [ ] PullRequestEvent
 
 ---
 
