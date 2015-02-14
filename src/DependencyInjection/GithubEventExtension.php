@@ -11,7 +11,7 @@
  * @license MIT License
  */
 
-namespace Ikwattro\GithubEvent\Dependencyinjection;
+namespace Ikwattro\GithubEvent\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder,
     Symfony\Component\DependencyInjection\Loader\YamlFileLoader,
@@ -30,7 +30,6 @@ class GithubEventExtension implements ExtensionInterface
         $configuration = new Configuration();
 
         $config = $processor->processConfiguration($configuration, $configs);
-        print_r($config);
 
         $loader = new YamlFileLoader(
             $container,
