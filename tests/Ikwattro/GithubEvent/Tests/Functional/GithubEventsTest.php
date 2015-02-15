@@ -104,5 +104,6 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PullRequestEvent', $eventO);
         $this->assertTrue($eventO->isCloseAction());
         $this->assertTrue($eventO->getPullRequest()->isMerged());
+        $this->assertEquals('Fixed "next significant release" tilde operator use', $eventO->getPullRequest()->getTitle());
     }
 }

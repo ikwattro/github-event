@@ -60,6 +60,7 @@ class PullRequestEventProcessor extends AbstractEventProcessor
         $pr->setState($payload['state']);
         $u = new User($payload['user']['id'], $payload['user']['login'],$payload['user']['type']);
         $pr->setUser($u);
+        $pr->setTitle($payload['title']);
         $pr->setBody($payload['body']);
         $pr->setCreatedAt($payload['created_at']);
         $pr->setUpdatedAt($payload['updated_at']);
