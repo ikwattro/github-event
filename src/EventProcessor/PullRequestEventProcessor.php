@@ -44,8 +44,15 @@ class PullRequestEventProcessor extends AbstractEventProcessor
         $b->setReferenceName($branch['ref']);
         $u = new User($branch['user']['id'], $branch['user']['login'], $branch['user']['type']);
         $b->setUser($u);
-        $repo = new Repository($branch['repo']['id'], $branch['repo']['name']);
-        $owner = new User($branch['repo']['owner']['id'], $branch['repo']['owner']['login'], $branch['repo']['owner']['type']);
+        if (!empty($branch['repo'])) {
+            $repo = new Repository($branch['repo']['id'], $branch['repo']['name']);
+            $owner = new User($branch['repo']['owner']['id'], $branch['repo']['owner']['login'], $branch['repo']['owner']['type']);
+        } else {
+            $repoId = crc32($u->getLogin() . $b->getLabel());
+            $repoName = $b->getLabel();
+            $repo = new Repository($repoId, $repoName);
+            $owner = new User($u->getId(), $u->getLogin(), $branch['user']['type']);
+        }
         $repo->setOwner($owner);
         $b->setRepository($repo);
 

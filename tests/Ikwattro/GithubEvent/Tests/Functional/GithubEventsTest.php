@@ -106,4 +106,13 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($eventO->getPullRequest()->isMerged());
         $this->assertEquals('Fixed "next significant release" tilde operator use', $eventO->getPullRequest()->getTitle());
     }
+
+    public function testPullRequestHeadRepoOwnerIsMappedWhenRepoIsDeleted()
+    {
+        $event = $this->events[105];
+        $eventO = $this->handler->handleEvent($event);
+        $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PullRequestEvent', $eventO);
+        $this->assertEquals(1108235, $eventO->getPullRequest()->getHead()->getRepository()->getOwner()->getId());
+        $this->assertEquals(crc32($eventO->getPullRequest()->getHead()->getUser()->getLogin() . $eventO->getPullRequest()->getHead()->getLabel()), $eventO->getPullRequest()->getHead()->getRepository()->getId());
+    }
 }
