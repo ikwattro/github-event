@@ -67,6 +67,9 @@ class PullRequestEventProcessor extends AbstractEventProcessor
         $pr->setMergedAt($payload['merged_at']);
         $pr->setHead($this->processBranch($payload['head']));
         $pr->setBase($this->processBranch($payload['base']));
+        if (1 == $payload['merged']) {
+            $pr->setMerged();
+        }
 
         return $pr;
     }

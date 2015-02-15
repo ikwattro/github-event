@@ -96,4 +96,13 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($eventO->getPullRequest()->isMerged());
         $this->assertTrue($eventO->getPullRequest()->getBase()->getRepository()->getOwner()->isOrg());
     }
+
+    public function testPullRequestEventIsMerged()
+    {
+        $event = $this->events[120];
+        $eventO = $this->handler->handleEvent($event);
+        $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PullRequestEvent', $eventO);
+        $this->assertTrue($eventO->isCloseAction());
+        $this->assertTrue($eventO->getPullRequest()->isMerged());
+    }
 }
