@@ -15,20 +15,38 @@ namespace Ikwattro\GithubEvent\Event;
 class WatchEvent extends BaseEvent
 {
 
+    /**
+     * Event Type
+     */
     const EVENT_TYPE = 'WatchEvent';
 
+    /**
+     * @var bool
+     */
     protected $isWatched = true;
 
+    /**
+     * Returns the Event Type
+     *
+     * @return string
+     */
     public function getEventType()
     {
         return self::EVENT_TYPE;
     }
 
+    /**
+     *
+     * @param bool $isWatched
+     */
     public function setWatched($isWatched = true)
     {
         $this->isWatched = (bool) $isWatched;
     }
 
+    /**
+     * @return bool
+     */
     public function isWatched()
     {
         return $this->isWatched;

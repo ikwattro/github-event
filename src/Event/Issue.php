@@ -14,50 +14,96 @@ namespace Ikwattro\GithubEvent\Event;
 
 class Issue
 {
+    /**
+     *
+     */
     const STATE_CLOSED = 'CLOSED';
 
+    /**
+     *
+     */
     const STATE_OPEN = 'OPEN';
 
+    /**
+     * @var int
+     */
     protected $id;
 
+    /**
+     * @var int
+     */
     protected $number;
 
+    /**
+     * @var string
+     */
     protected $title;
 
+    /**
+     * @var string
+     */
     protected $state;
 
+    /**
+     * @var string
+     */
     protected $body;
 
+    /**
+     * @var \DateTime
+     */
     protected $creationTime;
 
+    /**
+     * @var User
+     */
     protected $author;
 
+    /**
+     * @param $id
+     * @param $number
+     */
     public function __construct($id, $number)
     {
         $this->id = (int) $id;
         $this->number = (int) $number;
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return int
+     */
     public function getNumber()
     {
         return $this->number;
     }
 
+    /**
+     * @param $title
+     */
     public function setTitle($title)
     {
         $this->title = (string) $title;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @param $state
+     */
     public function setState($state)
     {
         $s = (string) $state;
@@ -72,36 +118,57 @@ class Issue
         $this->state = $s;
     }
 
+    /**
+     * @param $body
+     */
     public function setBody($body)
     {
         $this->body = (string) $body;
     }
 
+    /**
+     * @return string
+     */
     public function getState()
     {
         return strtoupper($this->state);
     }
 
+    /**
+     * @return string
+     */
     public function getBody()
     {
         return $this->body;
     }
 
+    /**
+     * @param $time
+     */
     public function setCreationTime($time)
     {
         $this->creationTime = new \DateTime($time);
     }
 
+    /**
+     * @param User $author
+     */
     public function setAuthor(User $author)
     {
         $this->author = $author;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getCreationTime()
     {
         return $this->creationTime;
     }
 
+    /**
+     * @return User
+     */
     public function getAuthor()
     {
         return $this->author;

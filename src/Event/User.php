@@ -14,12 +14,26 @@ namespace Ikwattro\GithubEvent\Event;
 
 class User
 {
+    /**
+     * @var int
+     */
     protected $id;
 
+    /**
+     * @var string
+     */
     protected $login;
 
+    /**
+     * @var string
+     */
     protected $type;
 
+    /**
+     * @param $id
+     * @param $login
+     * @param $type
+     */
     public function __construct($id, $login, $type)
     {
         $this->id = (int) $id;
@@ -27,16 +41,25 @@ class User
         $this->type = strtolower($type);
     }
 
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getLogin()
     {
         return $this->login;
     }
 
+    /**
+     * @return bool
+     */
     public function isUser()
     {
         if ('user' === $this->type) {
@@ -46,6 +69,9 @@ class User
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function isOrg()
     {
         if ('organization' === $this->type) {

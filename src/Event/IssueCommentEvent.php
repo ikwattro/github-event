@@ -16,32 +16,56 @@ use Ikwattro\GithubEvent\Event\User;
 
 class IssueCommentEvent extends IssuesEvent
 {
+    /**
+     *
+     */
     const EVENT_TYPE = 'IssueCommentEvent';
 
+    /**
+     * @var string
+     */
     protected $comment;
 
+    /**
+     * @var User
+     */
     protected $commentAuthor;
 
+    /**
+     * @return string
+     */
     public function getEventType()
     {
         return self::EVENT_TYPE;
     }
 
+    /**
+     * @param $comment
+     */
     public function setComment($comment)
     {
         $this->comment = (string) $comment;
     }
 
+    /**
+     * @return string
+     */
     public function getComment()
     {
         return $this->comment;
     }
 
+    /**
+     * @param User $author
+     */
     public function setCommentAuthor(User $author)
     {
         $this->commentAuthor = $author;
     }
 
+    /**
+     * @return User
+     */
     public function getCommentAuthor()
     {
         return $this->commentAuthor;
