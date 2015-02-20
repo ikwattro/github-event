@@ -1,14 +1,13 @@
 <?php
 
 /**
-* This file is part of the GithubEvent package
-*
-* (c) Christophe Willemsen <chris@neoxygen.io>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*
-*/
+ * This file is part of the GithubEvent package.
+ *
+ * (c) Christophe Willemsen <chris@neoxygen.io>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Ikwattro\GithubEvent\EventProcessor;
 
@@ -32,7 +31,6 @@ class CreateEventProcessor extends AbstractEventProcessor
         $e->setMasterBranch($this->getMasterBranch($event));
 
         return $e;
-
     }
 
     public function getCreationType(array $eventInfo)
@@ -43,7 +41,7 @@ class CreateEventProcessor extends AbstractEventProcessor
     public function getReference(array $eventInfo)
     {
         if (!isset($eventInfo['payload']['ref']) || $eventInfo['payload']['ref'] == '') {
-            return null;
+            return;
         }
 
         return $eventInfo['payload']['ref'];
@@ -52,7 +50,7 @@ class CreateEventProcessor extends AbstractEventProcessor
     public function getDescription(array $eventInfo)
     {
         if (!isset($eventInfo['payload']['description']) || $eventInfo['payload']['description'] == '') {
-            return null;
+            return;
         }
 
         return $eventInfo['payload']['description'];

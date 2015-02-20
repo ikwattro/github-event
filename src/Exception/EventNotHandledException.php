@@ -13,4 +13,6 @@
 
 namespace Ikwattro\GithubEvent\Exception;
 
-class EventNotHandledException extends \InvalidArgumentException{}
+class EventNotHandledException extends \InvalidArgumentException
+{
+}

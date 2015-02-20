@@ -1,22 +1,20 @@
 <?php
 
 /**
-* This file is part of the GithubEvent package
-*
-* (c) Christophe Willemsen <chris@neoxygen.io>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*
-*/
+ * This file is part of the GithubEvent package.
+ *
+ * (c) Christophe Willemsen <chris@neoxygen.io>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Ikwattro\GithubEvent\Event;
 
 class WatchEvent extends BaseEvent
 {
-
     /**
-     * Event Type
+     * Event Type.
      */
     const EVENT_TYPE = 'WatchEvent';
 
@@ -26,7 +24,7 @@ class WatchEvent extends BaseEvent
     protected $isWatched = true;
 
     /**
-     * Returns the Event Type
+     * Returns the Event Type.
      *
      * @return string
      */
@@ -36,7 +34,6 @@ class WatchEvent extends BaseEvent
     }
 
     /**
-     *
      * @param bool $isWatched
      */
     public function setWatched($isWatched = true)

@@ -13,11 +13,11 @@
 
 namespace Ikwattro\GithubEvent\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder,
-    Symfony\Component\DependencyInjection\Loader\YamlFileLoader,
-    Symfony\Component\DependencyInjection\Extension\ExtensionInterface,
-    Symfony\Component\Config\Definition\Processor,
-    Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
 
 class GithubEventExtension implements ExtensionInterface
 {
@@ -37,7 +37,6 @@ class GithubEventExtension implements ExtensionInterface
         );
 
         $loader->load('services.yml');
-
     }
 
     public function getAlias()

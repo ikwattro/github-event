@@ -1,14 +1,13 @@
 <?php
 
 /**
-* This file is part of the GithubEvent package
-*
-* (c) Christophe Willemsen <chris@neoxygen.io>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*
-*/
+ * This file is part of the GithubEvent package.
+ *
+ * (c) Christophe Willemsen <chris@neoxygen.io>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Ikwattro\GithubEvent\EventProcessor;
 
@@ -48,7 +47,7 @@ class PullRequestEventProcessor extends AbstractEventProcessor
             $repo = new Repository($branch['repo']['id'], $branch['repo']['name']);
             $owner = new User($branch['repo']['owner']['id'], $branch['repo']['owner']['login'], $branch['repo']['owner']['type']);
         } else {
-            $repoId = crc32($u->getLogin() . $b->getLabel());
+            $repoId = crc32($u->getLogin().$b->getLabel());
             $repoName = $b->getLabel();
             $repo = new Repository($repoId, $repoName);
             $owner = new User($u->getId(), $u->getLogin(), $branch['user']['type']);
@@ -65,7 +64,7 @@ class PullRequestEventProcessor extends AbstractEventProcessor
         $pr->setId($payload['id']);
         $pr->setNumber($payload['number']);
         $pr->setState($payload['state']);
-        $u = new User($payload['user']['id'], $payload['user']['login'],$payload['user']['type']);
+        $u = new User($payload['user']['id'], $payload['user']['login'], $payload['user']['type']);
         $pr->setUser($u);
         $pr->setTitle($payload['title']);
         $pr->setBody($payload['body']);
@@ -81,5 +80,4 @@ class PullRequestEventProcessor extends AbstractEventProcessor
 
         return $pr;
     }
-
 }

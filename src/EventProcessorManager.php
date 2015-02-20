@@ -13,14 +13,14 @@
 
 namespace Ikwattro\GithubEvent;
 
-use Ikwattro\GithubEvent\EventProcessor\EventProcessorInterface,
-    Ikwattro\GithubEvent\Exception\EventNotHandledException;
-use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\IssueCommentEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\PushEventProcessor,
-    Ikwattro\GithubEvent\EventProcessor\PullRequestEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\EventProcessorInterface;
+use Ikwattro\GithubEvent\Exception\EventNotHandledException;
+use Ikwattro\GithubEvent\EventProcessor\WatchEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\CreateEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\IssuesEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\IssueCommentEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\PushEventProcessor;
+use Ikwattro\GithubEvent\EventProcessor\PullRequestEventProcessor;
 
 class EventProcessorManager
 {

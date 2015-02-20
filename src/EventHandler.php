@@ -13,8 +13,8 @@
 
 namespace Ikwattro\GithubEvent;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder,
-    Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Ikwattro\GithubEvent\DependencyInjection\GithubEventExtension;
 
 class EventHandler
@@ -49,7 +49,7 @@ class EventHandler
     }
 
     /**
-     * Creates a new instance of the Github Event Handler
+     * Creates a new instance of the Github Event Handler.
      *
      * @return EventHandler
      */
@@ -59,7 +59,7 @@ class EventHandler
     }
 
     /**
-     * Returns the Github Event Handler library's version
+     * Returns the Github Event Handler library's version.
      *
      * @return string GithubEventHandler version
      */
