@@ -14,9 +14,16 @@ namespace Ikwattro\GithubEvent\Event;
 
 class PushEvent extends BaseEvent
 {
+    const EVENT_TYPE = 'PushEvent';
+
     protected $commits = [];
 
     protected $reference;
+
+    public function getEventType()
+    {
+        return self::EVENT_TYPE;
+    }
 
     public function getCommits()
     {

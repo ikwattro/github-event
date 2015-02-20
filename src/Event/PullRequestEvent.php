@@ -14,12 +14,19 @@ namespace Ikwattro\GithubEvent\Event;
 
 class PullRequestEvent extends BaseEvent
 {
+    const EVENT_TYPE = 'PullRequestEvent';
+
     /**
      * @var string
      */
     protected $action;
 
     protected $pullRequest;
+
+    public function getEventType()
+    {
+        return self::EVENT_TYPE;
+    }
 
     /**
      * @return mixed

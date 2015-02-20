@@ -16,9 +16,16 @@ use Ikwattro\GithubEvent\Event\User;
 
 class IssueCommentEvent extends IssuesEvent
 {
+    const EVENT_TYPE = 'IssueCommentEvent';
+
     protected $comment;
 
     protected $commentAuthor;
+
+    public function getEventType()
+    {
+        return self::EVENT_TYPE;
+    }
 
     public function setComment($comment)
     {

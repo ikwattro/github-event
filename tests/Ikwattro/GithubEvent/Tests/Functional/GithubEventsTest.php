@@ -28,6 +28,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[0];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('WatchEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\WatchEvent', $eventO);
         $this->assertTrue($eventO->isWatched());
         $this->assertEquals('ikwattro', $eventO->getActor()->getLogin());
@@ -38,6 +39,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[5];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('CreateEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\CreateEvent', $eventO);
         $this->assertTrue($eventO->isNewTag());
         $this->assertEquals('neoxygen/neo4j-neoclient', $eventO->getRepository()->getName());
@@ -49,6 +51,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[3];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('IssuesEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\IssuesEvent', $eventO);
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\Issue', $eventO->getIssue());
         $this->assertEquals('JackieXu', $eventO->getIssue()->getAuthor()->getLogin());
@@ -59,6 +62,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[4];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('IssueCommentEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\IssueCommentEvent', $eventO);
         $this->assertEquals('ikwattro', $eventO->getCommentAuthor()->getLogin());
         $this->assertFalse($eventO->getCommentAuthor()->isOrg());
@@ -69,6 +73,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[6];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('PushEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PushEvent', $eventO);
         $this->assertEquals('refs/heads/master', $eventO->getReference());
         $this->assertCount(2, $eventO->getCommits());
@@ -78,6 +83,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
     {
         $event = $this->events[9];
         $eventO = $this->handler->handleEvent($event);
+        $this->assertEquals('PullRequestEvent', $eventO->getEventType());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PullRequestEvent', $eventO);
         $this->assertEquals('OPENED', $eventO->getAction());
         $this->assertEquals(27465438, $eventO->getPullRequest()->getId());

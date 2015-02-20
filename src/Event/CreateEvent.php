@@ -14,6 +14,8 @@ namespace Ikwattro\GithubEvent\Event;
 
 class CreateEvent extends BaseEvent
 {
+    const EVENT_TYPE = 'CreateEvent';
+
     /**
      *
      */
@@ -43,6 +45,11 @@ class CreateEvent extends BaseEvent
      * @var
      */
     protected $masterBranch;
+
+    public function getEventType()
+    {
+        return self::EVENT_TYPE;
+    }
 
     /**
      * @param $type

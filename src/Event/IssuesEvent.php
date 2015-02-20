@@ -14,9 +14,16 @@ namespace Ikwattro\GithubEvent\Event;
 
 class IssuesEvent extends BaseEvent
 {
+    const EVENT_TYPE = 'IssuesEvent';
+
     protected $action;
 
     protected $issue;
+
+    public function getEventType()
+    {
+        return self::EVENT_TYPE;
+    }
 
     public function setAction($action)
     {
