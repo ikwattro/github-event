@@ -34,6 +34,11 @@ class BaseEvent
     protected $createdTime;
 
     /**
+     * @var null|Organization
+     */
+    protected $baseOrg;
+
+    /**
      * @param int $eventId
      */
     public function __construct($eventId)
@@ -135,5 +140,26 @@ class BaseEvent
     public function getMinute()
     {
         return (int) $this->createdTime->format('i');
+    }
+
+    /**
+     * @return Organization|null
+     */
+    public function getBaseOrg()
+    {
+        return $this->baseOrg;
+    }
+
+    /**
+     * @param Organization|null $baseOrg
+     */
+    public function setBaseOrg($baseOrg)
+    {
+        $this->baseOrg = $baseOrg;
+    }
+
+    public function hasBaseOrg()
+    {
+        return null !== $this->baseOrg;
     }
 }

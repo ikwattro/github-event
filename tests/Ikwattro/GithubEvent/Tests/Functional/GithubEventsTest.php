@@ -122,4 +122,12 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(1108235, $eventO->getPullRequest()->getHead()->getRepository()->getOwner()->getId());
         $this->assertEquals(crc32($eventO->getPullRequest()->getHead()->getUser()->getLogin() . $eventO->getPullRequest()->getHead()->getLabel()), $eventO->getPullRequest()->getHead()->getRepository()->getId());
     }
+
+    public function testEventHasBaseOrgIfSet()
+    {
+        $event = $this->events[6];
+        $ev = $this->handler->handleEvent($event);
+        $this->assertTrue($ev->hasBaseOrg());
+        $this->assertEquals('neoxygen', $ev->getBaseOrg()->getName());
+    }
 }

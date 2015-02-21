@@ -26,6 +26,10 @@ abstract class AbstractEventProcessor implements EventProcessorInterface
         $e->setActor($this->getActor($event));
         $e->setRepository($this->getRepository($event));
         $e->setTime($event['created_at']);
+        if (isset($event['org'])) {
+            $org = new Organization($event['org']['id'], $event['org']['login']);
+            $e->setBaseOrg($org);
+        }
 
         return $e;
     }
