@@ -74,6 +74,7 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $event = $this->events[6];
         $eventO = $this->handler->handleEvent($event);
         $this->assertEquals('PushEvent', $eventO->getEventType());
+        $this->assertEquals(547713695, $eventO->getPushId());
         $this->assertInstanceOf('Ikwattro\GithubEvent\Event\PushEvent', $eventO);
         $this->assertEquals('refs/heads/master', $eventO->getReference());
         $this->assertCount(2, $eventO->getCommits());

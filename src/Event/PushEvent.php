@@ -19,6 +19,11 @@ class PushEvent extends BaseEvent
     const EVENT_TYPE = 'PushEvent';
 
     /**
+     * @var int push Id
+     */
+    protected $pushId;
+
+    /**
      * @var array
      */
     protected $commits = [];
@@ -34,6 +39,22 @@ class PushEvent extends BaseEvent
     public function getEventType()
     {
         return self::EVENT_TYPE;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPushId()
+    {
+        return $this->pushId;
+    }
+
+    /**
+     * @param int $pushId
+     */
+    public function setPushId($pushId)
+    {
+        $this->pushId = $pushId;
     }
 
     /**

@@ -29,6 +29,7 @@ class PushEventProcessor extends AbstractEventProcessor
         $this->handleBase($event, $e);
         $this->addCommits($event, $e);
         $e->setReference($event['payload']['ref']);
+        $e->setPushId($event['payload']['push_id']);
 
         return $e;
     }
