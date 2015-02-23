@@ -25,6 +25,11 @@ class IssueCommentEvent extends IssuesEvent
     protected $comment;
 
     /**
+     * @var int Comment ID
+     */
+    protected $commentId;
+
+    /**
      * @var User
      */
     protected $commentAuthor;
@@ -51,6 +56,22 @@ class IssueCommentEvent extends IssuesEvent
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCommentId()
+    {
+        return $this->commentId;
+    }
+
+    /**
+     * @param int $commentId
+     */
+    public function setCommentId($commentId)
+    {
+        $this->commentId = $commentId;
     }
 
     /**

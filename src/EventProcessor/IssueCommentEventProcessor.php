@@ -30,6 +30,7 @@ class IssueCommentEventProcessor extends IssuesEventProcessor
         $e->setIssue($this->getIssue($event));
         $e->setComment($this->getIssueComment($event));
         $e->setCommentAuthor($this->getCommentAuthor($event));
+        $e->setCommentId($event['payload']['comment']['id']);
 
         return $e;
     }
