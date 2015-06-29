@@ -32,7 +32,7 @@ class ForkEventProcessor extends AbstractEventProcessor {
 
     private function getForkeeInfo(array $event)
     {
-        $owner = $event['forkee']['owner'];
+        $owner = $event['payload']['forkee']['owner'];
         $ou = new User($owner['id'], $owner['login'], $owner['type']);
         $fork = new Repository($event['forkee']['id'], $event['forkee']['name']);
         $fork->setOwner($ou);
