@@ -35,7 +35,7 @@ class EventProcessorManager
         $this->registerEventProcessor(new IssueCommentEventProcessor());
         $this->registerEventProcessor(new PushEventProcessor());
         $this->registerEventProcessor(new PullRequestEventProcessor());
-        $this->registerEventProcessor(new ForkEventProcessor());
+        //$this->registerEventProcessor(new ForkEventProcessor());
     }
 
     public function registerEventProcessor(EventProcessorInterface $eventProcessor)
