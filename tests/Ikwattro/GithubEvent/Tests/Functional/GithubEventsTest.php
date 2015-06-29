@@ -132,4 +132,21 @@ class WatchEventTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($ev->hasBaseOrg());
         $this->assertEquals('neoxygen', $ev->getBaseOrg()->getName());
     }
+
+    public function testPullRequest1()
+    {
+        $events = $this->getEvents1();
+        $ev = $events[0];
+        $e = $this->handler->handleEvent($ev);
+        $this->assertEquals(4582016, $e->getActor()->getId());
+        $this->assertTrue($e->getPullRequest()->getHead()->getRepository()->getOwner()->isOrg());
+        $this->assertTrue($e->getPullRequest()->getBase()->getRepository()->getOwner()->isOrg());
+    }
+
+    public function getEvents1()
+    {
+        $events = json_decode(file_get_contents(__DIR__.'/events1.json'), true);
+
+        return $events;
+    }
 }
